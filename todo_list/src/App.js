@@ -5,7 +5,7 @@ import Display from "./components/Display"
 
 function App() {
 
-  const [todoList, setToDoList] = useState([];)
+  const [todoList, setToDoList] = useState([]);
 
   return (
     <div className="App">
