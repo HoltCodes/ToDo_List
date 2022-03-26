@@ -1,19 +1,33 @@
 import React, { useState } from 'react';
 import './App.css';
-import Form from "./components/Form"
-import Display from "./components/Display"
+
 
 function App() {
 
-  const [todoList, setToDoList] = useState([]);
+  const [newTodo, setNewToDo] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const handNeWTodoSubmit = (event) => {
+    event.preventDefault();
+    todos.push(newTodo);
+  };
 
   return (
     <div className="App">
-
-      <Form todoList={todoList} setToDoList={setToDoList}/>
-
-      <Display todoList={todoList} setToDoList={setToDoList}/>
-
+      <form onSubmit={(event) => {
+        handNeWTodoSubmit (event)
+      }}
+      >
+        <input 
+        onChange={(event) => {
+          setNewToDo(event.target.value);
+        }}
+         type="text"
+         /> 
+         <div>
+           <button>Add</button>
+         </div>
+      </form>
     </div>
   );
 }
